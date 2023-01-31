@@ -8,28 +8,31 @@ function App() {
   });
       function handleChange(event){
       const{name, value}= event.target;
-      setContact(( preValue => {
-      if (name === "fName") {
-        return{
-          fName: value,
-          lName: preValue.lName,
-          email: preValue.email
-        }
-      }else if (name === "lName") {
-        return{
-          fName: preValue.fName,
-          lName: value,
-          email: preValue.email
-        }
-      }else if (name === "email") {
-        return{
-          fName: preValue.fName,
-          lName: preValue.lName,
-          email: value
-        }
-      }
+      setContact( preValue => ({
+        ...preValue,
+        [name]: value
+      // if (name === "fName") {
+      //   return{
+      //     fName: value,
+      //     lName: preValue.lName,
+      //     email: preValue.email
+      //   }
+      // }else if (name === "lName") {
+      //   return{
+      //     fName: preValue.fName,
+      //     lName: value,
+      //     email: preValue.email
+      //   }
+      // }else if (name === "email") {
+      //   return{
+      //     fName: preValue.fName,
+      //     lName: preValue.lName,
+      //     email: value
+      //   }
+      // }
       }));
     }
+    //Applying spread operator to reduce code size
   return (
     <div className="container">
       <h1>
